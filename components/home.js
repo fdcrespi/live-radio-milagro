@@ -43,12 +43,14 @@ const HomeScreen = () => {
       />
       <View style={styles.buttonContainer}>
         <FontAwesome.Button 
+          style={styles.buttonPlay}
           name= {status.isPlaying ? 'pause' : 'play'} 
           backgroundColor="#3b5998" 
           onPress={() =>  status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()}>
         </FontAwesome.Button>
   
         <FontAwesome.Button 
+          disabled={status.isPlaying ? false : true}
           name= {!status.isMuted ? 'volume-up' : 'volume-off'} 
           backgroundColor="#3b5998" 
           onPress={() => status.isPlaying ? video.current.setIsMutedAsync(!status.isMuted) : video.current.setIsMutedAsync(true)}>
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: 'rgb(4, 2, 5)'
+    backgroundColor: '#96613f'
   },
   title: {
     textAlign: "center",
@@ -89,8 +91,13 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 10,
+    width: '90%',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  buttonPlay: {
+    textAlign: 'center',
   }
 });
 

@@ -5,6 +5,8 @@ import {Video} from 'expo-av';
 import imagePause from '../assets/ondas-sonoras-pause.png';
 import imagePlay from '../assets/ondas-sonoras.gif';
 
+import { FontAwesome } from '@expo/vector-icons';
+
 const instagramURL = "https://www.instagram.com/mcymtresarroyos/?utm_medium=copy_link";
 const youtubeURL = "https://www.youtube.com/c/MCyMTresArroyos";
 
@@ -39,16 +41,20 @@ const HomeScreen = () => {
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
-      <Button
-        title={status.isPlaying ? 'Pause' : 'Play'}
-        onPress={() =>
-          status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
-        }
-      />
-      <Button 
-        title={ !status.isMuted ? "muted" : "unmuted" }
-        onPress={() => status.isPlaying ? video.current.setIsMutedAsync(!status.isMuted) : video.current.setIsMutedAsync(true)}
-      />
+      <View style={styles.buttonContainer}>
+        <FontAwesome.Button 
+          name= {status.isPlaying ? 'pause' : 'play'} 
+          backgroundColor="#3b5998" 
+          onPress={() =>  status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()}>
+        </FontAwesome.Button>
+  
+        <FontAwesome.Button 
+          name= {!status.isMuted ? 'volume-up' : 'volume-off'} 
+          backgroundColor="#3b5998" 
+          onPress={() => status.isPlaying ? video.current.setIsMutedAsync(!status.isMuted) : video.current.setIsMutedAsync(true)}>
+        </FontAwesome.Button>
+      </View>
+      
       <View style={styles.buttonContainer}>
         <OpenURLButton styles={styles.button} url={instagramURL}>Instagram</OpenURLButton>
         <OpenURLButton styles={styles.button} url={youtubeURL}>YouTube</OpenURLButton>
@@ -84,7 +90,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 10,
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   }
 });
 

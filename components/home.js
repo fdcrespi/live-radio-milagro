@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
+import * as React from "react";
 import {Text , View, StyleSheet, Image, Linking, Button} from "react-native";
 import {Video} from 'expo-av';
 import imagePause from '../assets/ondas-sonoras-pause.png';
@@ -38,6 +39,16 @@ const HomeScreen = () => {
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
+      <Button
+        title={status.isPlaying ? 'Pause' : 'Play'}
+        onPress={() =>
+          status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
+        }
+      />
+      <Button 
+        title={ !status.isMuted ? "muted" : "unmuted" }
+        onPress={() => status.isPlaying ? video.current.setIsMutedAsync(!status.isMuted) : video.current.setIsMutedAsync(true)}
+      />
       <View style={styles.buttonContainer}>
         <OpenURLButton styles={styles.button} url={instagramURL}>Instagram</OpenURLButton>
         <OpenURLButton styles={styles.button} url={youtubeURL}>YouTube</OpenURLButton>
@@ -59,7 +70,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   video: {
-    height: 50,
+    alignSelf: 'center',
+    overflow: 'hidden',
+    borderRadius: 15,
+    elevation: 5,
+    aspectRatio: 16 / 9,
   },
   image: {
     width: 300,

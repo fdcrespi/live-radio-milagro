@@ -33,12 +33,24 @@ const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme} >
       <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Radio en Vivo" component={HomeScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
+};
+
+const MyTheme = {
+  dark: false,
+  colors: {
+    primary: 'black',
+    background: 'rgb(242, 242, 242)',
+    card: '#96613f',
+    text: 'rgb(28, 28, 30)',
+    border: 'rgb(199, 199, 204)',
+    notification: 'rgb(255, 69, 58)',
+  },
 };
 
 export default App;

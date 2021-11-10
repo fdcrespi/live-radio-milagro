@@ -9,10 +9,9 @@ import icono from "../assets/templo.png";
 
 import { FontAwesome, AntDesign, Foundation, MaterialCommunityIcons } from "@expo/vector-icons";
 
-const instagramURL =
-  "https://www.instagram.com/mcymtresarroyos/?utm_medium=copy_link";
+const instagramURL =  "https://www.instagram.com/mcymtresarroyos/?utm_medium=copy_link";
 const youtubeURL = "https://www.youtube.com/c/MCyMTresArroyos";
-const whatsappURL = "https://api.whatsapp.com/send?phone=+542983655609";
+const whatsappURL = "https://api.whatsapp.com/send?phone=+542983521842";
 const webURL = "https://tabernaculodemilag.wixsite.com/tabernculodemilagros";
 
 const OpenURLButton = ({ url, children }) => {
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
   },
   video: {
     alignSelf: "center",
-    /* overflow: "hidden", */
+    overflow: "hidden",
     borderRadius: 15,
     elevation: 5,
     aspectRatio: 16 / 9,

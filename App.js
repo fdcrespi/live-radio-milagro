@@ -8,6 +8,8 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
+import { FontAwesome } from "@expo/vector-icons";
+
 import HomePage from './components/home'
 
 
@@ -19,12 +21,14 @@ function HomeScreen({ navigation }) {
 
 function CustomDrawerContent(props) {
   return (
-    <DrawerContentScrollView {...props}>
+    <DrawerContentScrollView {...props} >
       <DrawerItemList {...props} />
+        
         <DrawerItem
           label="Cerrar"
           onPress={() => props.navigation.closeDrawer()}
         />
+        
     </DrawerContentScrollView>
   );
 }

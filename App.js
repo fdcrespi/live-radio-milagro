@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import {StyleSheet, Linking, Button} from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createDrawerNavigator,
@@ -7,8 +7,9 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
+import * as Font from 'expo-font';
 
-import { FontAwesome } from "@expo/vector-icons";
+
 
 import HomePage from './components/home'
 
@@ -21,7 +22,7 @@ function HomeScreen({ navigation }) {
 
 function CustomDrawerContent(props) {
   return (
-    <DrawerContentScrollView {...props} >
+    <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
         
         <DrawerItem
@@ -36,8 +37,25 @@ function CustomDrawerContent(props) {
 const Drawer = createDrawerNavigator();
 
 const App = () => {
+
+  const[fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    if(!fontsLoaded) {
+      loadFonts();
+    }
+  });
+
+  const loadFonts = async () => {
+    await Font.loadAsync({
+      'Glacial': require('./assets/fonts/GlacialIndifference-Bold.otf'),
+      'Waverly': require('./assets/fonts/WaverlyCF-Bold.otf'),
+    });
+    setFontsLoaded(true);
+  };
+
   return (
-    <NavigationContainer theme={MyTheme} >
+    <NavigationContainer theme={MyTheme} style={style.nav}>
       <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Radio en Vivo" component={HomeScreen} />
       </Drawer.Navigator>
@@ -54,7 +72,13 @@ const MyTheme = {
     text: 'rgb(28, 28, 30)',
     border: 'rgb(199, 199, 204)',
     notification: 'rgb(255, 69, 58)',
-  },
+  }
 };
+
+const style = StyleSheet.create({
+  nav: {
+    fontFamily: 'Glacial',
+  }
+});
 
 export default App;

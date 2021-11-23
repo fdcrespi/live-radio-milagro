@@ -120,10 +120,8 @@ const styles = StyleSheet.create({
   video: {
     alignSelf: "center",
     overflow: "hidden",
-    borderRadius: 15,
-    elevation: 5,
-    aspectRatio: 16 / 9,
-
+    width: 0,
+    height: 0,
   },
   image: {
     width: "50%",
@@ -143,7 +141,8 @@ const styles = StyleSheet.create({
     right: 0,
   },
   live: {
-    fontSize: 15,
+    fontFamily: "Waverly",
+    fontSize: 20,
     fontWeight: "bold",
     color: "white",
     alignSelf: "center",

@@ -51,6 +51,7 @@ const HomeScreen = () => {
           }}
           useNativeControls
           /* resizeMode="contain" */
+          playsInline
           isLooping
           onPlaybackStatusUpdate={(status) => setStatus(() => status)} 
         />
@@ -70,6 +71,7 @@ const HomeScreen = () => {
           <Foundation
             name={!status.isMuted ? "volume" : "volume-strike"}
             size={42}
+            style={styles.iconPause}
             /* color={status.isPlaying ? "#d6966d" : "gray"} */
             color="#d6966d"
             onPress={() =>
@@ -129,7 +131,6 @@ const styles = StyleSheet.create({
     marginBottom: 5, 
   },
   buttonContainer: {
-    marginTop: 10,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-around",
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
   inLine: {
     alignSelf: "flex-end",
     flexDirection: "row",
-    margin: 10,
+    marginTop: 10,
     top: 0,
     right: 0,
   },
@@ -152,6 +153,9 @@ const styles = StyleSheet.create({
     width: 100,
     height: 75
   },
+  iconPause: {
+    marginTop: 15,
+  }
 });
 
 export default HomeScreen;

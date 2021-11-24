@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
     flex: 1,
-  },
+  }, 
   live: {
     fontSize: 20,
     color: "white",
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   footer: {
     justifyContent: "end",
     flex: 3,
-  }
+  } 
 });
 
 export default HomeScreen;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createDrawerNavigator,
@@ -9,9 +9,8 @@ import {
 } from '@react-navigation/drawer';
 import * as Font from 'expo-font';
 
-
-
 import HomePage from './components/home'
+import PrayerRequest from './components/prayerRequest';
 
 
 function HomeScreen({ navigation }) {
@@ -20,16 +19,22 @@ function HomeScreen({ navigation }) {
   );
 }
 
+function prayerReq() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <PrayerRequest/>
+    </View> 
+  );
+}
+
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
-        
         <DrawerItem
           label="Cerrar"
           onPress={() => props.navigation.closeDrawer()}
-        />
-        
+        /> 
     </DrawerContentScrollView>
   );
 }
@@ -58,6 +63,7 @@ const App = () => {
     <NavigationContainer theme={MyTheme} style={style.nav}>
       <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <CustomDrawerContent {...props} />}>
         <Drawer.Screen name="Radio en Vivo" component={HomeScreen} />
+        <Drawer.Screen name="Pedidos de Oración" component={prayerReq} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

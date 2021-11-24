@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet,Button, View, TextInput, Text} from 'react-native';
 
-
 const UselessTextInput = (props) => {
   return (
     <TextInput
@@ -14,8 +13,6 @@ const UselessTextInput = (props) => {
 
 const UselessTextInputMultiline = () => {
   const [nombre, onChangeNombre] = React.useState(nombre);
-   const [mail, onChangeMail] = React.useState(mail);
-  const [asunto, onChangeAsunto] = React.useState(asunto);
   const [msj, onChangeMsj] = React.useState(msj);
 
   return (
@@ -24,10 +21,7 @@ const UselessTextInputMultiline = () => {
       style={styles.container}>
       <Text style={styles.text}>Apellido y Nombre</Text>
       <TextInput id='nombre' value={nombre} style={styles.input} onChangeText={nombre => onChangeNombre(nombre)}/>
-      <Text style={styles.text}>Email</Text>
-      <TextInput name='email' value={mail} style={styles.input} onChangeText={mail => onChangeMail(mail)}/>
-      <Text style={styles.text}>Asunto</Text>
-      <TextInput style={styles.input } value={asunto} onChangeText={asunto => onChangeAsunto(asunto)}/>
+      
       <Text style={styles.text}>Mensaje</Text>
       <UselessTextInput
         multiline
@@ -37,8 +31,8 @@ const UselessTextInputMultiline = () => {
         style={{padding: 24, backgroundColor:"#d6966d", borderRadius:5, marginTop:5}}
       />
       <View style={styles.buttonSend}>
-          <Button color='#d6966d' borderRadius="50" onPress={() => alert(nombre+' '+mail+' '+asunto+' '+msj )} title="Enviar" />
-        </View>
+        <Button color='#d6966d' borderRadius="50" onPress={() => alert(nombre+' '+msj )} title="Enviar" />
+      </View>
     </View>
     
   );

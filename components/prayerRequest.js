@@ -1,34 +1,25 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Button ,Image, Icon, ScrollView} from "react-native";
 import  TextArea from "./textArea";
-import * as Linking from 'expo-linking';
-import { FontAwesome } from '@expo/vector-icons';
+import SocialLinks from "./socialLinks"
+import Footer from "./footer"
 
 
 class prayerRequest extends Component {
  
   render() {
-    return (
-     
-        <View style={styles.container}>
-          <Image style={styles.imageMicro} source={require('../images/microphone.png')}/>
+    return (   
+      <View style={styles.container}>
+        <Image style={styles.imageMicro} source={require('../images/microphone.png')}/>
 
-          <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>
-          <View>
-            <TextArea></TextArea>
-          </View>
-        
-          <View style={styles.social}>           
-            <FontAwesome name="instagram" size={40} color="white" onPress={()=> Linking.openURL("https://www.instagram.com/mcymtresarroyos/?utm_medium=copy_link")}/>
-            <FontAwesome name="whatsapp" size={40} color="white" />
-            <FontAwesome name="facebook-square" size={40} color="white" />
-            <FontAwesome name="youtube-play" size={45} color="white" onPress={()=> Linking.openURL("https://www.youtube.com/c/MCyMTresArroyos")} />
-          </View>
-          <Text style={styles.titleTaber}>TABERNÁCULO DE LOS MILAGROS</Text>
-          <Image style={styles.image} source={require('../images/church.png')}/>
-       </View>  
-     
-      
+        <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>
+        <View>
+          <TextArea></TextArea>
+        </View>
+
+        <SocialLinks/>
+        <Footer />
+      </View>  
     );
   }
 }
@@ -44,7 +35,6 @@ const styles = StyleSheet.create({
     fontSize:25,
     textAlign:"center",
     color:"#d6966d",
-
   },
   titleTaber:{    
     paddingTop:'10%',

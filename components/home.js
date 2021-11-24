@@ -1,14 +1,15 @@
 import { useCallback } from "react";
 import * as React from "react";
-import {Text , View, StyleSheet, Image, Linking, Button} from "react-native";
-import {Video} from 'expo-av';
-import imagePause from '../assets/ondas-sonoras-pause.png';
-import imagePlay from '../assets/ondas-sonoras.gif';
+import { Text, View, StyleSheet, Image, Linking, Button } from "react-native";
+import { Video } from "expo-av";
+import imagePause from "../assets/ondas-sonoras-pause.png";
+import imagePlay from "../assets/ondas-sonoras.gif";
+import microphone from "../assets/microphone.png";
 
-import { FontAwesome } from '@expo/vector-icons';
+import SocialLinks from "./socialLinks";
+import Footer from "./footer";
 
-const instagramURL = "https://www.instagram.com/mcymtresarroyos/?utm_medium=copy_link";
-const youtubeURL = "https://www.youtube.com/c/MCyMTresArroyos";
+import { FontAwesome, Foundation} from "@expo/vector-icons";
 
 const OpenURLButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
@@ -28,81 +29,114 @@ const HomeScreen = () => {
   const [status, setStatus] = React.useState({});
   return (
     <View style={styles.container}>
-      <Text style={styles.title}> Tabernaculo de los milagros </Text>
-      <Image style={styles.image} source={status.isPlaying ? imagePlay : imagePause}/>
-      <Video
-        ref={video}
-        style={styles.video}
-        source={{
-          uri: 'https://node-09.zeno.fm/fnge482h268uv?rj-ttl=5&rj-tok=AAABfOY_WzkAQa2hCQKBbGYZyw',
-        }}
-        useNativeControls
-        resizeMode="contain"
-        isLooping
-        onPlaybackStatusUpdate={status => setStatus(() => status)}
-      />
-      <View style={styles.buttonContainer}>
-        <FontAwesome.Button 
-          style={styles.buttonPlay}
-          name= {status.isPlaying ? 'pause' : 'play'} 
-          backgroundColor="#3b5998" 
-          onPress={() =>  status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()}>
-        </FontAwesome.Button>
-  
-        <FontAwesome.Button 
-          disabled={status.isPlaying ? false : true}
-          name= {!status.isMuted ? 'volume-up' : 'volume-off'} 
-          backgroundColor="#3b5998" 
-          onPress={() => status.isPlaying ? video.current.setIsMutedAsync(!status.isMuted) : video.current.setIsMutedAsync(true)}>
-        </FontAwesome.Button>
-      </View>
       
-      <View style={styles.buttonContainer}>
-        <OpenURLButton styles={styles.button} url={instagramURL}>Instagram</OpenURLButton>
-        <OpenURLButton styles={styles.button} url={youtubeURL}>YouTube</OpenURLButton>
+      <View style={styles.inLive}>
+        <View style={{justifyContent: "center"}}>
+          <FontAwesome name="circle" size={24} color="red" />
+        </View>
+        <Text style={styles.live}> EN VIVO </Text>
       </View>
-        
-       
-        
+    
+      <View style={styles.containerPlayer}>
+        <Image
+          style={styles.image}
+          /* source={status.isPlaying ? imagePlay : imagePause} */
+          source= {microphone}
+        />
+        <Video
+          ref={video}
+          style={styles.video}
+          source={{
+            uri: "https://node-09.zeno.fm/fnge482h268uv?rj-ttl=5&rj-tok=AAABfOY_WzkAQa2hCQKBbGYZyw",
+          }}
+          useNativeControls
+          /* resizeMode="contain" */
+          playsInline
+          isLooping
+          onPlaybackStatusUpdate={(status) => setStatus(() => status)} 
+        />
 
+        <View style={styles.buttonVideo}>
+          <FontAwesome 
+            name={status.isPlaying ? "pause" : "play"} 
+            size={42} 
+            color="#d6966d" 
+            onPress={() =>
+              status.isPlaying
+                ? video.current.pauseAsync()
+                : video.current.playAsync()
+            }
+          />
+         
+          <Foundation
+            name={!status.isMuted ? "volume" : "volume-strike"}
+            size={42}
+            style={styles.iconPause}
+            /* color={status.isPlaying ? "#d6966d" : "gray"} */
+            color="#d6966d"
+            onPress={() =>
+              status.isMuted
+                ? video.current.setIsMutedAsync(!status.isMuted)
+                : video.current.setIsMutedAsync(true)
+            }
+          />             
+        </View>
+      </View>
+
+      <View style={styles.footer}>
+        <SocialLinks/>
+        <Footer />
+      </View>
 
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#96613f",
     flex: 1,
+  },
+  containerPlayer: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: '#96613f'
-  },
-  title: {
-    textAlign: "center",
-    color: 'white',
-    fontSize: 30,
+    flex: 6
   },
   video: {
-    alignSelf: 'center',
-    overflow: 'hidden',
-    borderRadius: 15,
-    elevation: 5,
-    aspectRatio: 16 / 9,
+    alignSelf: "center",
+    overflow: "hidden",
+    width: 0,
+    height: 0,
   },
   image: {
-    width: 300,
-    height: 150,
-    marginBottom: 5,
+    width: "50%",
+    height: "50%", 
+    flex: 2
   },
-  buttonContainer: {
-    marginTop: 10,
-    width: '90%',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
+  buttonVideo: {
+    justifyContent: "center",
+    flex: 1
   },
-  buttonPlay: {
-    textAlign: 'center',
+  inLive: {
+    alignSelf: "end",
+    flexDirection: "row",
+    marginTop: 0,
+    top: 0,
+    right: 0,
+    flex: 1,
+  },
+  live: {
+    fontSize: 20,
+    color: "white",
+    alignSelf: "center",
+    justifyContent: "center",
+  },
+  iconPause: {
+    marginTop: 15,
+  },
+  footer: {
+    justifyContent: "end",
+    flex: 3,
   }
 });
 

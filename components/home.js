@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   inLive: {
-    alignSelf: "end",
+    alignSelf: "flex-end",
     flexDirection: "row",
     marginTop: 0,
     top: 0,
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   footer: {
-    justifyContent: "end",
+    justifyContent: "flex-end",
     flex: 3,
   }
 });

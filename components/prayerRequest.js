@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Button ,Image, Icon, ScrollView} from "react-native";
 import  TextArea from "./textArea";
-import * as Linking from 'expo-linking';
-import { FontAwesome } from '@expo/vector-icons';
+import SocialLinks from "./socialLinks"
+import Footer from "./footer"
 
 
 class prayerRequest extends Component {
@@ -16,15 +16,9 @@ class prayerRequest extends Component {
         <View>
           <TextArea></TextArea>
         </View>
-      
-        <View style={styles.social}>           
-          <FontAwesome name="instagram" size={40} color="white" onPress={()=> Linking.openURL("https://www.instagram.com/mcymtresarroyos/?utm_medium=copy_link")}/>
-          <FontAwesome name="whatsapp" size={40} color="white" />
-          <FontAwesome name="facebook-square" size={40} color="white" />
-          <FontAwesome name="youtube-play" size={45} color="white" onPress={()=> Linking.openURL("https://www.youtube.com/c/MCyMTresArroyos")} />
-        </View>
-        <Text style={styles.titleTaber}>TABERNÁCULO DE LOS MILAGROS</Text>
-        <Image style={styles.image} source={require('../images/church.png')}/>
+
+        <SocialLinks/>
+        <Footer />
       </View>  
     );
   }

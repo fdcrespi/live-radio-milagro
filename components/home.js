@@ -5,14 +5,11 @@ import { Video } from "expo-av";
 import imagePause from "../assets/ondas-sonoras-pause.png";
 import imagePlay from "../assets/ondas-sonoras.gif";
 import microphone from "../assets/microphone.png";
-import icono from "../assets/templo.png";
 
-import { FontAwesome, AntDesign, Foundation, MaterialCommunityIcons } from "@expo/vector-icons";
+import SocialLinks from "./socialLinks";
+import Footer from "./footer";
 
-const instagramURL =  "https://www.instagram.com/mcymtresarroyos/?utm_medium=copy_link";
-const youtubeURL = "https://www.youtube.com/c/MCyMTresArroyos";
-const whatsappURL = "https://api.whatsapp.com/send?phone=+542983521842";
-const webURL = "https://tabernaculodemilag.wixsite.com/tabernculodemilagros";
+import { FontAwesome, Foundation} from "@expo/vector-icons";
 
 const OpenURLButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
@@ -32,8 +29,11 @@ const HomeScreen = () => {
   const [status, setStatus] = React.useState({});
   return (
     <View style={styles.container}>
-      <View style={styles.inLine}>
-        <FontAwesome name="circle" size={24} color="red" />
+      
+      <View style={styles.inLive}>
+        <View style={{justifyContent: "center"}}>
+          <FontAwesome name="circle" size={24} color="red" />
+        </View>
         <Text style={styles.live}> EN VIVO </Text>
       </View>
     
@@ -56,7 +56,7 @@ const HomeScreen = () => {
           onPlaybackStatusUpdate={(status) => setStatus(() => status)} 
         />
 
-        <View>
+        <View style={styles.buttonVideo}>
           <FontAwesome 
             name={status.isPlaying ? "pause" : "play"} 
             size={42} 
@@ -80,24 +80,14 @@ const HomeScreen = () => {
                 : video.current.setIsMutedAsync(true)
             }
           />             
-         
         </View>
       </View>
 
-      <View style={styles.buttonContainer}>
-        <AntDesign name="instagram" size={36} color="#d6966d" onPress={ ()=>{ Linking.openURL(instagramURL) }}/>
-        <AntDesign name="youtube" size={36} color="#d6966d" onPress={ ()=>{ Linking.openURL(youtubeURL) }}/>
-        <FontAwesome name="whatsapp" size={36} color="#d6966d" onPress={ ()=>{ Linking.openURL(whatsappURL) }} />
-        <AntDesign name="link" size={36} color="#d6966d"  onPress={ ()=>{ Linking.openURL(webURL) }} />
+      <View style={styles.footer}>
+        <SocialLinks/>
+        <Footer />
       </View>
-      <View style={styles.buttonContainer}>
-        <Image
-          style={styles.icono}
-          source= {icono}
-        />
-      <Text style={styles.live}> Tabernáculo de milagros </Text>
-      </View>
-      
+
     </View>
   );
 };
@@ -108,14 +98,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerPlayer: {
-    height: "70%",
     justifyContent: "center",
     alignItems: "center",
-  },
-  title: {
-    textAlign: "center",
-    color: "white",
-    fontSize: 30,
+    flex: 6
   },
   video: {
     alignSelf: "center",
@@ -125,35 +110,33 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "50%",
-    height: "50%",
-    marginBottom: 5, 
+    height: "50%", 
+    flex: 2
   },
-  buttonContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
+  buttonVideo: {
+    justifyContent: "center",
+    flex: 1
   },
-  inLine: {
-    alignSelf: "flex-end",
+  inLive: {
+    alignSelf: "end",
     flexDirection: "row",
-    marginTop: 10,
+    marginTop: 0,
     top: 0,
     right: 0,
+    flex: 1,
   },
   live: {
-    fontFamily: "Waverly",
     fontSize: 20,
-    fontWeight: "bold",
     color: "white",
     alignSelf: "center",
-    justifyContent: "center"
-  },
-  icono: {
-    width: 100,
-    height: 75
+    justifyContent: "center",
   },
   iconPause: {
     marginTop: 15,
+  },
+  footer: {
+    justifyContent: "end",
+    flex: 3,
   }
 });
 

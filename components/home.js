@@ -118,13 +118,13 @@ const styles = StyleSheet.create({
     flex: 1
   },
   inLive: {
-    alignSelf: "end",
+    alignSelf: "flex-end",
     flexDirection: "row",
     marginTop: 0,
     top: 0,
     right: 0,
     flex: 1,
-  }, 
+  },
   live: {
     fontSize: 20,
     color: "white",
@@ -135,9 +135,9 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   footer: {
-    justifyContent: "end",
+    justifyContent: "flex-end",
     flex: 3,
-  } 
+  }
 });
 
 export default HomeScreen;

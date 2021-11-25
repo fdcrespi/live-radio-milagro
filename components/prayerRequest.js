@@ -10,13 +10,13 @@ class prayerRequest extends Component {
   render() {
     return (   
       <View style={styles.container}>
-        <Image style={styles.imageMicro} source={require('../images/microphone.png')}/>
-
-        <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>
+          <Image style={styles.imageMicro} source={require('../images/microphone.png')}/>
+        </View>
         <View>
           <TextArea></TextArea>
         </View>
-
         <SocialLinks/>
         <Footer />
       </View>  
@@ -28,30 +28,28 @@ const styles = StyleSheet.create({
     height:'100%',
     width:'100%',
     backgroundColor: '#96613f',
-    paddingTop:'2%'
+    paddingTop:'2%',
+    flex:10,
   },
   title:{
     paddingBottom:'2%',
+    paddingLeft:"15%",
+    alignSelf:"center",
     fontSize:25,
-    textAlign:"center",
-    color:"#d6966d",
-  },
-  titleTaber:{    
-    paddingTop:'10%',
-    fontSize:20,
-    textAlign:"center",
-    color:"white",
-  },
+    textAlign:"left",
+    color:"#d6966d",  
+    flex:2,
+  },  
   image:{
     alignSelf:"center",
     height:'15%',
-    width:'35%',
+    width:'35%',    
   },   
   imageMicro:{
-    alignSelf:"flex-end",
-    marginRight:20,
-    height:'15%',
-    width:'15%',    
+    alignSelf:"flex-end",    
+    height:'75%',
+    width:'15%',
+         
   },  
   social:{
     marginTop:"10%",
@@ -60,6 +58,14 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     flexWrap: "wrap",
     justifyContent:"space-evenly",
+    flex:3,
+  },
+  header:{
+    display:"flex",
+    flexDirection:"row",
+    flexWrap:"wrap",
+    justifyContent:"space-evenly",
+    flex:2,
   }
   
 });

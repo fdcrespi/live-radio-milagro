@@ -58,7 +58,7 @@ const App = () => {
     });
     setFontsLoaded(true);
   };
-
+ 
   return (
     <NavigationContainer theme={MyTheme} style={style.nav}>
       <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <CustomDrawerContent {...props} />}>

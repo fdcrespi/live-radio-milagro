@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   live: {
+    fontFamily: "Glacial",
     fontSize: 20,
     color: "white",
     alignSelf: "center",

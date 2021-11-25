@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet,Button, View, TextInput, Text} from 'react-native';
+import {StyleSheet,Button, View, TextInput, Text, TouchableOpacity, Alert} from 'react-native';
 
 const UselessTextInput = (props) => {
   return (
@@ -13,55 +13,64 @@ const UselessTextInput = (props) => {
 
 const UselessTextInputMultiline = () => {
   const [nombre, onChangeNombre] = React.useState(nombre);
-  const [mail, onChangeMail] = React.useState(mail);
-  const [asunto, onChangeAsunto] = React.useState(asunto);
   const [msj, onChangeMsj] = React.useState(msj);
-
+  const PrayerAlert = () =>
+    Alert.alert('Plegaria Enviada', nombre+ ', su oración ha sido enviada correctamente', [
+      {
+         text: 'OK', onPress: () => { onChangeNombre(''),onChangeMsj('')} },
+    ]);
+    
+    
   return (
     
-    <View
-      style={styles.container}>
+    <View style={styles.container}>      
       <Text style={styles.text}>Apellido y Nombre</Text>
-      <TextInput id='nombre' value={nombre} style={styles.input} onChangeText={nombre => onChangeNombre(nombre)}/>
-      <Text style={styles.text}>Email</Text>
-      <TextInput name='email' value={mail} style={styles.input} onChangeText={mail => onChangeMail(mail)}/>
-      <Text style={styles.text}>Asunto</Text>
-      <TextInput style={styles.input } value={asunto} onChangeText={asunto => onChangeAsunto(asunto)}/>
+      <TextInput id='nombre' value={nombre} style={styles.input} onChangeText={nombre => onChangeNombre(nombre)}  />      
       <Text style={styles.text}>Mensaje</Text>
       <UselessTextInput
         multiline
         numberOfLines={4}        
         value={msj}
         onChangeText={msj => onChangeMsj(msj)}
-        style={{padding: 24, backgroundColor:"#d6966d", borderRadius:5, marginTop:5}}
-      />
-      <View style={styles.buttonSend}>
-        <Button color='#d6966d' borderRadius="50" onPress={() => alert(nombre+' '+mail+' '+asunto+' '+msj )} title="Enviar" />
-      </View>
+        style={{padding: 24, backgroundColor:"#d6966d",color:"white", borderRadius:5, marginTop:5}}
+      />      
+      <TouchableOpacity
+        onPress={PrayerAlert}
+        style={styles.buttonSend}>
+        <Text style={{ fontSize: 20, textAlign:'center', marginTop:5, color: '#fff' }}>Enviar</Text>
+      </TouchableOpacity>
     </View>
     
   );
 }
 
 
+
+
 const styles = StyleSheet.create({
 container:{
   paddingHorizontal:20,  
+  paddingBottom:"45%",
 },
-buttonSend:{
-  paddingTop:10,
+buttonSend:{  
   alignSelf:"center",
   color:'white', 
-  width:"25%",
-  borderTopEndRadius:25,
-   
+  backgroundColor:"#d6966d",
+  width:"45%",
+  borderRadius:20,
+  paddingBottom:"3%",
+  marginTop:15,
 },
 input:{
   borderBottomColor:"#d6966d", 
   borderBottomWidth:1,  
+  color:"white",
+  paddingBottom:"3%",
 },
 text:{
-  color:"white",
+  color:"#d6966d",
+  paddingBottom:"3%",
+  paddingTop:"3%"
 }
 });
 export default UselessTextInputMultiline;

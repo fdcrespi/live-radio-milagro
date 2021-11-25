@@ -70,8 +70,3 @@ const styles = StyleSheet.create({
   
 });
 export default prayerRequest;
-
-/* 
-export const sendEmail = {to, subject, body}=>{
-  Linking.openUrl(`mailto:${to}?subject=${subject}&body=${body}`)
-} */

@@ -2,8 +2,6 @@ import { useCallback } from "react";
 import * as React from "react";
 import { Text, View, StyleSheet, Image, Linking, Button } from "react-native";
 import { Video } from "expo-av";
-import imagePause from "../assets/ondas-sonoras-pause.png";
-import imagePlay from "../assets/ondas-sonoras.gif";
 import microphone from "../assets/microphone.png";
 
 import SocialLinks from "./socialLinks";
@@ -126,6 +124,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   live: {
+    fontFamily: "Glacial",
     fontSize: 20,
     color: "white",
     alignSelf: "center",

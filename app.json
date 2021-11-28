@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "react-native-course",
-    "slug": "react-native-course",
+    "name": "radio del tab",
+    "slug": "radio-del-tab",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/templo-black.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/templo-black.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,9 +21,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/templo-black.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "host.exp.exponent"
     },
     "web": {
       "favicon": "./assets/favicon.png"

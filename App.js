@@ -8,6 +8,7 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import * as Font from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 import HomePage from './components/home'
 import PrayerRequest from './components/prayerRequest';
@@ -58,15 +59,19 @@ const App = () => {
     });
     setFontsLoaded(true);
   };
-
-  return (
-    <NavigationContainer theme={MyTheme} style={style.nav}>
-      <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name="Radio en Vivo" component={HomeScreen} />
-        <Drawer.Screen name="Pedidos de Oración" component={prayerReq} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
+ 
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <NavigationContainer theme={MyTheme} style={style.nav}>
+        <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <CustomDrawerContent {...props} />}>
+          <Drawer.Screen name="Radio en Vivo" component={HomeScreen} />
+          <Drawer.Screen name="Pedidos de Oración" component={prayerReq} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    );
+  }
 };
 
 const MyTheme = {

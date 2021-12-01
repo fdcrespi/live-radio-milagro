@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet,Button, View, TextInput, Text, TouchableOpacity, Alert} from 'react-native';
+import {StyleSheet, View, TextInput, Text, TouchableOpacity, Alert} from 'react-native';
+import {addPrayer} from '../api';
 
 const UselessTextInput = (props) => {
   return (
@@ -11,16 +12,27 @@ const UselessTextInput = (props) => {
   );
 }
 
+
+
 const UselessTextInputMultiline = () => {
+  
+
+
   const [nombre, onChangeNombre] = React.useState(nombre);
   const [msj, onChangeMsj] = React.useState(msj);
-  const PrayerAlert = () =>
-    Alert.alert('Plegaria Enviada', nombre+ ', su oración ha sido enviada correctamente', [
+  const message={
+    nom:nombre,
+    mess:msj
+  }
+  const PrayerAlert = () =>{
+     Alert.alert('Plegaria Enviada', nombre+ ', su oración ha sido enviada correctamente', [
       {
-         text: 'OK', onPress: () => { onChangeNombre(''),onChangeMsj('')} },
+         text: 'OK', onPress: () => { onChangeNombre(''),onChangeMsj(''), addPrayer(message)},  },
     ]);
-    
-    
+    console.log(message);
+  }
+
+   
   return (
     
     <View style={styles.container}>      
@@ -36,7 +48,7 @@ const UselessTextInputMultiline = () => {
       />      
       <TouchableOpacity
         onPress={PrayerAlert}
-        style={styles.buttonSend}>
+        style={styles.buttonSend} >{/* ojo agregar disable, para que se active solo cuando los campos tengan algo */}
         <Text style={{ fontSize: 20, textAlign:'center', marginTop:5, color: '#fff' }}>Enviar</Text>
       </TouchableOpacity>
     </View>

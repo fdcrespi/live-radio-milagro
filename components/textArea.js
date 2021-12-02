@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, View, TextInput, Text, TouchableOpacity, Alert} from 'react-native';
+import {StyleSheet, View, TextInput, Text, TouchableOpacity, Alert, Keyboard} from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import {addPrayer} from '../api';
 
 const UselessTextInput = (props) => {
@@ -15,7 +16,11 @@ const UselessTextInput = (props) => {
 
 
 const UselessTextInputMultiline = () => {
-  
+  /* function validation(){
+     if (message.mess!='' && message.nom!=''){
+      send.disabled=false;
+    } 
+  } */
 
 
   const [nombre, onChangeNombre] = React.useState(nombre);
@@ -25,17 +30,28 @@ const UselessTextInputMultiline = () => {
     mess:msj
   }
   const PrayerAlert = () =>{
-     Alert.alert('Plegaria Enviada', nombre+ ', su oración ha sido enviada correctamente', [
-      {
-         text: 'OK', onPress: () => { onChangeNombre(''),onChangeMsj(''), addPrayer(message)},  },
-    ]);
-    console.log(message);
+     if(message.nom!=''&& message.mess!=''){
+      Alert.alert('Plegaria Enviada', nombre+ ', su oración ha sido enviada correctamente', [
+        {
+           text: 'OK', onPress: () => { onChangeNombre(''),onChangeMsj(''), addPrayer(message)},  },
+      ]);
+     }
+     else {
+      Alert.alert('Error', 'Debe ingresar su nombre y una oración ', [
+        {
+           text: 'OK' },
+      ]);
+     }
+     
+    
   }
 
    
   return (
-    
-    <View style={styles.container}>      
+    <TouchableWithoutFeedback onPress={()=>
+    Keyboard.dismiss()
+   }>
+     <View style={styles.container}>      
       <Text style={styles.text}>Apellido y Nombre</Text>
       <TextInput id='nombre' value={nombre} style={styles.input} onChangeText={nombre => onChangeNombre(nombre)}  />      
       <Text style={styles.text}>Mensaje</Text>
@@ -48,10 +64,13 @@ const UselessTextInputMultiline = () => {
       />      
       <TouchableOpacity
         onPress={PrayerAlert}
-        style={styles.buttonSend} >{/* ojo agregar disable, para que se active solo cuando los campos tengan algo */}
+        label='send'
+        style={styles.buttonSend}  >{/* ojo agregar disable, para que se active solo cuando los campos tengan algo */}
         <Text style={{ fontSize: 20, textAlign:'center', marginTop:5, color: '#fff' }}>Enviar</Text>
       </TouchableOpacity>
     </View>
+   </TouchableWithoutFeedback>
+    
     
   );
 }
@@ -63,6 +82,7 @@ const styles = StyleSheet.create({
 container:{
   paddingHorizontal:20,  
   paddingBottom:"45%",
+  paddingTop:"5%"
 },
 buttonSend:{  
   alignSelf:"center",
@@ -83,6 +103,10 @@ text:{
   color:"#d6966d",
   paddingBottom:"3%",
   paddingTop:"3%"
-}
+},
+
+alertSend:{
+  color:"red",
+},
 });
 export default UselessTextInputMultiline;

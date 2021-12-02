@@ -6,30 +6,20 @@ import {addPrayer} from '../api';
 const UselessTextInput = (props) => {
   return (
     <TextInput
-      {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+      {...props} 
       editable
       maxLength={250}
     />
   );
 }
-
-
-
 const UselessTextInputMultiline = () => {
-  /* function validation(){
-     if (message.mess!='' && message.nom!=''){
-      send.disabled=false;
-    } 
-  } */
-
-
   const [nombre, onChangeNombre] = React.useState(nombre);
   const [msj, onChangeMsj] = React.useState(msj);
   const message={
     nom:nombre,
     mess:msj
   }
-  const PrayerAlert = () =>{
+  const PrayerAlert = () =>{     
      if(message.nom!=''&& message.mess!=''){
       Alert.alert('Plegaria Enviada', nombre+ ', su oración ha sido enviada correctamente', [
         {
@@ -41,9 +31,7 @@ const UselessTextInputMultiline = () => {
         {
            text: 'OK' },
       ]);
-     }
-     
-    
+     }   
   }
 
    
@@ -65,18 +53,13 @@ const UselessTextInputMultiline = () => {
       <TouchableOpacity
         onPress={PrayerAlert}
         label='send'
-        style={styles.buttonSend}  >{/* ojo agregar disable, para que se active solo cuando los campos tengan algo */}
+        style={styles.buttonSend}>
         <Text style={{ fontSize: 20, textAlign:'center', marginTop:5, color: '#fff' }}>Enviar</Text>
       </TouchableOpacity>
     </View>
-   </TouchableWithoutFeedback>
-    
-    
+   </TouchableWithoutFeedback>   
   );
 }
-
-
-
 
 const styles = StyleSheet.create({
 container:{
@@ -103,10 +86,6 @@ text:{
   color:"#d6966d",
   paddingBottom:"3%",
   paddingTop:"3%"
-},
-
-alertSend:{
-  color:"red",
 },
 });
 export default UselessTextInputMultiline;

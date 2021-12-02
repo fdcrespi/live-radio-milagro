@@ -8,21 +8,12 @@ import Footer from "./footer"
 class prayerRequest extends Component {
   
   render() {
-    const login = () =>{
-      Alert.alert('Login', 'Login', [
-       {
-          text: 'OK', onPress: () => { },  },
-     ]);
-     
-   }
+    
     return (   
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title} >PEDIDOS DE ORACIÓN</Text>
-          {/* OJO lo del touchable con delay es para una idea del loguin, preguntar a Fede */}
-          <TouchableOpacity delayLongPress="5000" onLongPress={() => login("")} style={styles.imageMicro}>
-              <Image   source={require('../images/microphone.png')} style={styles.inImage}/>
-          </TouchableOpacity>
+          <Text style={styles.title} >PEDIDOS DE ORACIÓN</Text>          
+          <Image   source={require('../images/microphone.png')} style={styles.inImage}/>         
         </View>
         <View>
           <TextArea></TextArea>
@@ -33,6 +24,7 @@ class prayerRequest extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     height:'100%',

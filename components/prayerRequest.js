@@ -12,8 +12,11 @@ class prayerRequest extends Component {
     return (   
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title} >PEDIDOS DE ORACIÓN</Text>          
-          <Image   source={require('../images/microphone.png')} style={styles.inImage}/>         
+          <Text style={styles.title} >PEDIDOS DE ORACIÓN</Text>
+          
+          
+              <Image   source={require('../images/microphone.png')} style={styles.imageMicro}/>
+          
         </View>
         <View>
           <TextArea></TextArea>
@@ -24,7 +27,6 @@ class prayerRequest extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     height:'100%',

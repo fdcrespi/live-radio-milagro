@@ -1,18 +1,22 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet, Button ,Image, Icon, ScrollView} from "react-native";
+import React, { Component, useState } from "react";
+import { View, Text, StyleSheet, Button ,Image, TouchableOpacity, Alert} from "react-native";
 import  TextArea from "./textArea";
 import SocialLinks from "./socialLinks"
 import Footer from "./footer"
 
 
 class prayerRequest extends Component {
- 
+  
   render() {
+    
     return (   
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>
-          <Image style={styles.imageMicro} source={require('../images/microphone.png')}/>
+          <Text style={styles.title} >PEDIDOS DE ORACIÓN</Text>
+          
+          
+              <Image   source={require('../images/microphone.png')} style={styles.imageMicro}/>
+          
         </View>
         <View>
           <TextArea></TextArea>
@@ -38,19 +42,18 @@ const styles = StyleSheet.create({
     fontSize:25,
     textAlign:"left",
     color:"#d6966d",  
-    flex:2,
-  },  
-  image:{
-    alignSelf:"center",
-    height:'15%',
-    width:'35%',    
-  },   
+    
+  },     
   imageMicro:{
     alignSelf:"flex-end",    
     height:'75%',
     width:'15%',
-         
-  },  
+  }, 
+  inImage:{
+    
+    width: "100%",
+    height: "100%",
+   }, 
   social:{
     marginTop:"10%",
     marginHorizontal:"20%",

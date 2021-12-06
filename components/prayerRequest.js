@@ -13,10 +13,7 @@ class prayerRequest extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title} >PEDIDOS DE ORACIÓN</Text>
-          
-          
-              <Image   source={require('../images/microphone.png')} style={styles.imageMicro}/>
-          
+          <Image source={require('../images/microphone.png')} style={styles.imageMicro}/>
         </View>
         <View>
           <TextArea></TextArea>
@@ -42,12 +39,12 @@ const styles = StyleSheet.create({
     fontSize:25,
     textAlign:"left",
     color:"#d6966d",  
-    
   },     
   imageMicro:{
     alignSelf:"flex-end",    
-    height:'75%',
+    height:'85%',
     width:'15%',
+    
   }, 
   inImage:{
     

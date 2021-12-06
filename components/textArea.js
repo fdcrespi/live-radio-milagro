@@ -27,7 +27,7 @@ const UselessTextInputMultiline = () => {
 
   const PrayerAlert = () =>{     
       if((message.nom!='' && message.mess!='')&&(message.nom!=undefined && message.mess!=undefined)){
-        setModalText(message.nom+'su oración ha sido enviada correctamente'+message.mess);
+        setModalText(message.nom+' su pedido de oración ha sido enviado correctamente.');
         onChangeNombre('');
         onChangeMsj('');
         addPrayer(message);     

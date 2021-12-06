@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "radio del tab",
-    "slug": "radio-del-tab",
+    "name": "MCYM Tres Arroyos",
+    "slug": "MCYM-Tres-Arroyos",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/templo-black.png",
@@ -27,7 +27,7 @@
       "package": "host.exp.exponent"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/templo-black.png"
     }
   }
 }

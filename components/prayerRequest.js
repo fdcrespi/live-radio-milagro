@@ -8,15 +8,20 @@ import Footer from "./footer"
 class prayerRequest extends Component {
   
   render() {
-    
+    const login = () =>{
+      Alert.alert('Login', 'Login', [
+       {
+          text: 'OK', onPress: () => { },  },
+     ]);     
+   }
     return (   
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title} >PEDIDOS DE ORACIÓN</Text>
           
-          
-              <Image   source={require('../images/microphone.png')} style={styles.imageMicro}/>
-          
+          <TouchableOpacity delayLongPress="5000" onLongPress={() => login("")} style={styles.imageMicro}>
+              <Image   source={require('../images/microphone.png')} style={styles.inImage}/>
+          </TouchableOpacity>
         </View>
         <View>
           <TextArea></TextArea>

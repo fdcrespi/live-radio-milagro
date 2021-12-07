@@ -10,10 +10,10 @@ const webURL = "https://tabernaculodemilag.wixsite.com/tabernculodemilagros";
 const socialLinks = () => {
   return (
     <View style={styles.buttonContainer}>
-      <AntDesign name="instagram" size={36} color="#d6966d" onPress={ ()=>{ Linking.openURL(instagramURL) }}/>
-      <AntDesign name="youtube" size={36} color="#d6966d" onPress={ ()=>{ Linking.openURL(youtubeURL) }}/>
-      <FontAwesome name="whatsapp" size={36} color="#d6966d" onPress={ ()=>{ Linking.openURL(whatsappURL) }} />
-      <AntDesign name="link" size={36} color="#d6966d"  onPress={ ()=>{ Linking.openURL(webURL) }} />
+      <AntDesign name="instagram" size={30} color="#d6966d" onPress={ ()=>{ Linking.openURL(instagramURL) }}/>
+      <AntDesign name="youtube" size={30} color="#d6966d" onPress={ ()=>{ Linking.openURL(youtubeURL) }}/>
+      <FontAwesome name="whatsapp" size={30} color="#d6966d" onPress={ ()=>{ Linking.openURL(whatsappURL) }} />
+      <AntDesign name="link" size={30} color="#d6966d"  onPress={ ()=>{ Linking.openURL(webURL) }} />
     </View>
   );
 }

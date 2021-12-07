@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, TextInput, Text, TouchableOpacity, Alert, Keyboard, Modal, Pressable} from 'react-native';
+import {StyleSheet, View, TextInput, Text, TouchableOpacity, Keyboard, Modal, Pressable} from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import {addPrayer} from '../api';
 import { FontAwesome} from "@expo/vector-icons";
@@ -13,6 +13,7 @@ const UselessTextInput = (props) => {
     />
   );
 }
+
 const UselessTextInputMultiline = () => {
   const [nombre, onChangeNombre] = React.useState(nombre);
   const [msj, onChangeMsj] = React.useState(msj);
@@ -27,7 +28,7 @@ const UselessTextInputMultiline = () => {
 
   const PrayerAlert = () =>{     
       if((message.nom!='' && message.mess!='')&&(message.nom!=undefined && message.mess!=undefined)){
-        setModalText(message.nom+' su pedido de oración ha sido enviada correctamente'+message.mess);
+        setModalText(message.nom+' su pedido de oración ha sido enviado correctamente.');
         onChangeNombre('');
         onChangeMsj('');
         addPrayer(message);     
@@ -68,8 +69,7 @@ const UselessTextInputMultiline = () => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => {
-          
+        onRequestClose={() => {          
           setModalVisible(!modalVisible);
         }}>
         <View style={styles.centeredView}>
@@ -95,7 +95,7 @@ const UselessTextInputMultiline = () => {
 const styles = StyleSheet.create({
 container:{
   paddingHorizontal:20,  
-  paddingBottom:"45%",
+  paddingBottom:"3%",
   paddingTop:"5%"
 },
 buttonSend:{  
@@ -103,9 +103,9 @@ buttonSend:{
   color:'white', 
   backgroundColor:"#d6966d",
   width:"45%",
-  borderRadius:20,
-  paddingBottom:"3%",
+  borderRadius:20,  
   marginTop:15,
+  height:"15%",
 },
 input:{
   borderBottomColor:"#d6966d", 
@@ -114,16 +114,14 @@ input:{
   paddingBottom:"3%",
 },
 text:{
-  color:"#d6966d",
-  paddingBottom:"3%",
+  color:"#d6966d",  
   paddingTop:"3%"
 },
 centeredView: {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  marginTop: 22,
-  
+  marginTop: 22,  
 },
 modalView: {
   margin: 20,
@@ -145,8 +143,7 @@ modalView: {
 button: {
   borderRadius: 20,
   padding: 10,
-  elevation: 2,
-  
+  elevation: 2,  
 },
 buttonClose: {
   width:150,

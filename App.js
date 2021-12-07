@@ -78,10 +78,10 @@ const App = () => {
 const MyTheme = {
   dark: false,
   colors: {
-    primary: 'black',
+    primary: 'white',
     background: 'rgb(242, 242, 242)',
     card: '#96613f',
-    text: 'rgb(28, 28, 30)',
+    text: 'white',
     border: 'rgb(199, 199, 204)',
     notification: 'rgb(255, 69, 58)',
   }

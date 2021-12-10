@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   header:{
     flexDirection: "row",    
     justifyContent: "space-evenly",
+    
   },
   title:{
     alignSelf:"center",
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     flex:10,
   },      
   inImage:{    
-    height: "100%",
+    height: "200%",
     resizeMode:"contain",
     flex:3,
    },   
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     marginBottom: 'auto',
   },
   social:{ 
-    marginTop :"45%",
+    marginTop :"20%",
     minHeight: 120,
   }
 });

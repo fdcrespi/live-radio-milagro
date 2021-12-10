@@ -10,8 +10,8 @@ const prayerRequest = ()=>{
 
   return (   
     
-    <View style={styles.container}>
-      <KeyboardAwareScrollView>  
+    
+      <KeyboardAwareScrollView style={styles.container} contentContainerStyle = {{ flex: 1 }}>  
         <View style={styles.header}>
           <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>          
           <Image source={require('../images/microphone.png')} style={styles.inImage}/>
@@ -27,19 +27,19 @@ const prayerRequest = ()=>{
         </View>  
         
       </KeyboardAwareScrollView> 
-    </View>  
+    
           
   );
 }
 
 const styles = StyleSheet.create({
   container: {    
-    width:'100%',
-    height:'100%',
+    width: "100%",
     backgroundColor: '#96613f',
     paddingTop:'2%',
   },
   header:{
+    
     flexDirection: "row",    
     justifyContent: "space-evenly",
   },
@@ -60,11 +60,12 @@ const styles = StyleSheet.create({
     minHeight: 320,
     display:'flex',
     justifyContent: "flex-start",
-    marginBottom: 'auto',
+    flex: 6,
   },
   social:{ 
-    marginTop :"45%",
     minHeight: 120,
+    flex: 2,
+    justifyContent: "flex-end",
   }
 });
 

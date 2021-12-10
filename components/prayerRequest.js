@@ -1,78 +1,76 @@
-import React, {  useState  } from "react";
-import { View, StyleSheet, Alert,Keyboard, TouchableWithoutFeedback} from "react-native";
+import React from "react";
+import { View, StyleSheet, Text, Image} from "react-native";
 import  TextArea from "./textArea";
 import SocialLinks from "./socialLinks"
 import Footer from "./footer"
-import Title from "./titlePrayerRequest"
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
- const prayerRequest =()=>{ 
-  
-    const flexValues = [0, 1];    
-    const [flexValue, setFlexValue] = useState(1);  
-    const flexValuesfoot = [0, 1];    
-    const [flexValuefoot, setFlexValuefoot] = useState(1);    
+const prayerRequest = ()=>{ 
+
+  return (   
     
-    const typesOfStyles = {
-      flex: flexValues[flexValue],
-           
-    };
-    const typesOfStylesfoot = {
-      flex: flexValuesfoot[flexValuefoot],      
-    };   
-
-    const changeStyle = () => {
-      setFlexValue(0);  
-      setFlexValuefoot(0);
-    };
-    
-    const changeStyleOld = () => {      
-       
-        setFlexValue(1);
-        setFlexValuefoot(1);
-        Keyboard.dismiss()   
-      
-             
-     
-    };
-    return (   
-      <View style={styles.container}>
-        <View style={[styles.header, typesOfStyles]}>
-         <Title></Title>
+    <View style={styles.container}>
+      <KeyboardAwareScrollView style={styles.scrolling}>  
+        <View style={styles.header}>
+          <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>          
+          <Image source={require('../images/microphone.png')} style={styles.inImage}/>
         </View>
-        <TouchableWithoutFeedback onPress={()=> 
-          changeStyleOld()
-        }>
-        <View style={styles.textArea}  onTouchStart={()=> changeStyle()}>          
-          <TextArea ></TextArea>
+        
+        <View style={styles.textArea}>          
+          <TextArea></TextArea>
         </View>
-        </TouchableWithoutFeedback>
-        <View style={[styles.social, typesOfStylesfoot]}>
+        
+        <View style={styles.social}>
           <SocialLinks/>
           <Footer/>
-        </View>         
-              
-      </View>  
-    );
-  }
-//}
+        </View>  
+        
+      </KeyboardAwareScrollView> 
+    </View>  
+          
+  );
+}
+
 const styles = StyleSheet.create({
   container: {    
     width:'100%',
+    height:'100%',
     backgroundColor: '#96613f',
     paddingTop:'2%',
-    flex:1,    
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'space-between',
   },
   header:{
-    flex:1,    
+    flexDirection: "row",    
+    justifyContent: "space-evenly",
   },
+  title:{
+    alignSelf:"center",
+    paddingLeft:"8%",    
+    fontSize:25,
+    textAlign:"left",
+    color:"#d6966d",  
+    flex:10,
+  },      
+  inImage:{    
+    height: "100%",
+    resizeMode: 'contain',
+    flex:3,
+   },   
   textArea:{
-    flex:4,
+    minHeight: 320,
+    display:'flex',
+    justifyContent: "flex-start",
+    marginBottom: 'auto',
   },
   social:{   
-    flex:1,
-    
+    minHeight: 120,
   },  
+  scrolling:{
+    height: '100%',
+  }
 });
 
 

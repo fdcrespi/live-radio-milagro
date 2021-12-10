@@ -98,8 +98,6 @@ const UselessTextInputMultiline = () => {
 const styles = StyleSheet.create({
 container:{
   paddingHorizontal:20,  
-  paddingBottom:"3%",
-  paddingTop:"5%"
 },
 containerFocus:{
   paddingHorizontal:20,  

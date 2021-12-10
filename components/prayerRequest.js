@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },      
   inImage:{    
     height: "100%",
-    resizeMode: 'contain',
+    resizeMode:"contain",
     flex:3,
    },   
   textArea:{
@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     marginBottom: 'auto',
   },
-  social:{   
+  social:{ 
+    marginTop :"45%",
     minHeight: 120,
   }
 });

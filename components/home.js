@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
   footer: {
     justifyContent: "flex-end",
     flex: 3,
+    marginTop:"50%"
   }
 });
 

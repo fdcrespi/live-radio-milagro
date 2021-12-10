@@ -11,7 +11,7 @@ const prayerRequest = ()=>{
   return (   
     
     <View style={styles.container}>
-      <KeyboardAwareScrollView style={styles.scrolling}>  
+      <KeyboardAwareScrollView>  
         <View style={styles.header}>
           <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>          
           <Image source={require('../images/microphone.png')} style={styles.inImage}/>
@@ -38,9 +38,6 @@ const styles = StyleSheet.create({
     height:'100%',
     backgroundColor: '#96613f',
     paddingTop:'2%',
-    display:'flex',
-    flexDirection:'column',
-    justifyContent:'space-between',
   },
   header:{
     flexDirection: "row",    
@@ -49,7 +46,7 @@ const styles = StyleSheet.create({
   title:{
     alignSelf:"center",
     paddingLeft:"8%",    
-    fontSize:25,
+    fontSize: 25,
     textAlign:"left",
     color:"#d6966d",  
     flex:10,
@@ -67,9 +64,6 @@ const styles = StyleSheet.create({
   },
   social:{   
     minHeight: 120,
-  },  
-  scrolling:{
-    height: '100%',
   }
 });
 

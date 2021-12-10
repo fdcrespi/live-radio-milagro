@@ -1,8 +1,9 @@
 import React from 'react';
-import {StyleSheet, View, TextInput, Text, TouchableOpacity, Keyboard, Modal, Pressable} from 'react-native';
+import {StyleSheet, View, TextInput, Text, TouchableOpacity, Keyboard, Modal, Pressable, Alert} from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import {addPrayer} from '../api';
 import { FontAwesome} from "@expo/vector-icons";
+
 
 const UselessTextInput = (props) => {
   return (
@@ -10,6 +11,7 @@ const UselessTextInput = (props) => {
       {...props} 
       editable
       maxLength={250}
+      
     />
   );
 }
@@ -37,18 +39,19 @@ const UselessTextInputMultiline = () => {
      else {     
       setModalText('Debe ingresar su nombre y una oración ');
       setModalIcon('times-circle');
+
      }        
      setModalVisible(true);
   }
-
+ 
    
   return (
     <TouchableWithoutFeedback onPress={()=>
     Keyboard.dismiss()
    }>
-     <View style={styles.container}>      
+     <View style={styles.container} >      
       <Text style={styles.text}>Apellido y Nombre</Text>
-      <TextInput value={nombre} style={styles.input} onChangeText={nombre => onChangeNombre(nombre)}  />      
+      <TextInput value={nombre} style={styles.input} onChangeText={nombre => onChangeNombre(nombre)}   />      
       <Text style={styles.text}>Mensaje</Text>
       <UselessTextInput
         multiline
@@ -98,6 +101,12 @@ container:{
   paddingBottom:"3%",
   paddingTop:"5%"
 },
+containerFocus:{
+  paddingHorizontal:20,  
+  paddingVertical:"53%",
+  paddingTop:"5%"
+  
+},
 buttonSend:{  
   alignSelf:"center",
   color:'white', 
@@ -128,7 +137,7 @@ modalView: {
   backgroundColor:"#d6966d", 
   borderColor: '#96613f', 
   borderWidth: 3,
-  borderRadius: 20,
+  borderRadius: 15,
   padding: 35,
   alignItems: 'center',
   shadowColor: '#000',

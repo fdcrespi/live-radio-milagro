@@ -60,12 +60,12 @@ const App = () => {
     });
     setFontsLoaded(true);
   };
- 
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
     return (
-      <NavigationContainer theme={MyTheme} style={style.nav}>
+      
+      <NavigationContainer theme={MyTheme} style={style.nav} >
         <Drawer.Navigator initialRouteName="Home" drawerContent={(props) => <CustomDrawerContent {...props} />}>
           <Drawer.Screen name="Radio en Vivo" component={HomeScreen} />
           <Drawer.Screen name="Pedidos de Oración" component={prayerReq} />
@@ -76,20 +76,23 @@ const App = () => {
 };
 
 const MyTheme = {
-  dark: false,
+  dark: true,
   colors: {
     primary: 'white',
     background: 'rgb(242, 242, 242)',
     card: '#96613f',
     text: 'white',
     border: 'rgb(199, 199, 204)',
-    notification: 'rgb(255, 69, 58)',
-  }
+    notification: 'rgb(255, 69, 58)',   
+
+  },
+
 };
 
 const style = StyleSheet.create({
   nav: {
     fontFamily: 'Glacial',
+    
   }
 });
 

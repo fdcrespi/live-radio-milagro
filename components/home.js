@@ -36,11 +36,13 @@ const HomeScreen = () => {
       </View>
     
       <View style={styles.containerPlayer}>
-        <Image
-          style={styles.image}
-          /* source={status.isPlaying ? imagePlay : imagePause} */
-          source= {microphone}
-        />
+        <View style={styles.containerImage}>
+          <Image
+            style={styles.image}
+            /* source={status.isPlaying ? imagePlay : imagePause} */
+            source= {microphone}
+          />
+        </View>
         <Video
           ref={video}
           style={styles.video}
@@ -106,10 +108,16 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
   },
-  image: {
-    width: "50%",
-    height: "50%", 
+  containerImage: {
+    width: "100%",
+    justifyContent: "center",
     flex: 2
+  },
+  image: {
+    flex: 1,
+    width: null,
+    height: null,
+    resizeMode: 'contain'
   },
   buttonVideo: {
     justifyContent: "center",

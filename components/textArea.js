@@ -11,7 +11,7 @@ const UselessTextInput = (props) => {
       {...props} 
       editable
       maxLength={250}
-      
+
     />
   );
 }
@@ -58,7 +58,7 @@ const UselessTextInputMultiline = () => {
         numberOfLines={4}        
         value={msj}
         onChangeText={msj => onChangeMsj(msj)}
-        style={{padding: 24, backgroundColor:"#d6966d",color:"white", borderRadius:5, marginTop:5}}
+        style={{padding: 24, backgroundColor:"#d6966d",color:"white", borderRadius:5, marginTop:5,  maxHeight:200}}
       />      
       <TouchableOpacity
         onPress={PrayerAlert}
@@ -112,7 +112,7 @@ buttonSend:{
   width:"45%",
   borderRadius:20,  
   marginTop:15,
-  height:"15%",
+  height:40,
 },
 input:{
   borderBottomColor:"#d6966d", 

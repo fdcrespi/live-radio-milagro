@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {StyleSheet, View, TextInput, Text, TouchableOpacity, Keyboard, Modal, Pressable, Alert} from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import {addPrayer} from '../api';
 import { FontAwesome} from "@expo/vector-icons";
 
 
+
 const UselessTextInput = (props) => {
+  
   return (
     <TextInput
-      {...props} 
+      {...props}      
       editable
       maxLength={250}
-
+      multiline={true}      
     />
   );
 }
 
 const UselessTextInputMultiline = () => {
+  
   const [nombre, onChangeNombre] = React.useState(nombre);
+  
   const [msj, onChangeMsj] = React.useState(msj);
   const message={
     nom:nombre,
@@ -43,22 +47,23 @@ const UselessTextInputMultiline = () => {
      }        
      setModalVisible(true);
   }
- 
-   
+    
   return (
+    
     <TouchableWithoutFeedback onPress={()=>
-    Keyboard.dismiss()
+    Keyboard.dismiss()  
    }>
-     <View style={styles.container} >      
-      <Text style={styles.text}>Apellido y Nombre</Text>
-      <TextInput value={nombre} style={styles.input} onChangeText={nombre => onChangeNombre(nombre)}   />      
+     <View style={styles.container} visible={()=>vaciar()} >      
+      <Text style={styles.text}  >Apellido y Nombre</Text>
+      <TextInput value={nombre} style={styles.input}  onChangeText={nombre => onChangeNombre(nombre)}   />      
       <Text style={styles.text}>Mensaje</Text>
       <UselessTextInput
         multiline
-        numberOfLines={4}        
-        value={msj}
+        numberOfLines={4} 
+        keyboardType="visible-password"  
+        value={msj}        
         onChangeText={msj => onChangeMsj(msj)}
-        style={{padding: 24, backgroundColor:"#d6966d",color:"white", borderRadius:5, marginTop:5,  maxHeight:200}}
+        style={{padding: 24, backgroundColor:"#d6966d",color:"white", borderRadius:5, marginTop:5,  maxHeight:150}}
       />      
       <TouchableOpacity
         onPress={PrayerAlert}

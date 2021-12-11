@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, Image} from "react-native";
+import { View, StyleSheet, Text, Image, Alert} from "react-native";
 import  TextArea from "./textArea";
 import SocialLinks from "./socialLinks"
 import Footer from "./footer"
@@ -10,15 +10,15 @@ const prayerRequest = ()=>{
 
   return (   
     
-    <View style={styles.container}>
-      <KeyboardAwareScrollView>  
-        <View style={styles.header}>
+    
+      <KeyboardAwareScrollView style={styles.container} contentContainerStyle = {{ flex: 1 }}>  
+        <View style={styles.header} >
           <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>          
-          <Image source={require('../images/microphone.png')} style={styles.inImage}/>
+          <Image source={require('../images/microphone.png')} style={styles.inImage} />
         </View>
         
         <View style={styles.textArea}>          
-          <TextArea></TextArea>
+          <TextArea name=""></TextArea>
         </View>
         
         <View style={styles.social}>
@@ -27,19 +27,19 @@ const prayerRequest = ()=>{
         </View>  
         
       </KeyboardAwareScrollView> 
-    </View>  
+    
           
   );
 }
 
 const styles = StyleSheet.create({
   container: {    
-    width:'100%',
-    height:'100%',
+    width: "100%",
     backgroundColor: '#96613f',
     paddingTop:'2%',
   },
   header:{
+    
     flexDirection: "row",    
     justifyContent: "space-evenly",
     
@@ -54,18 +54,20 @@ const styles = StyleSheet.create({
   },      
   inImage:{    
     height: "200%",
-    resizeMode:"contain",
+    resizeMode:"contain",    
+    zIndex:1,
     flex:3,
    },   
   textArea:{
     minHeight: 320,
     display:'flex',
     justifyContent: "flex-start",
-    marginBottom: 'auto',
+    flex: 6,
   },
   social:{ 
-    marginTop :"20%",
     minHeight: 120,
+    
+    justifyContent: "flex-end",
   }
 });
 

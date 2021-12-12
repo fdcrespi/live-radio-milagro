@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, Image} from "react-native";
+import { View, StyleSheet, Text, Image, Alert} from "react-native";
 import  TextArea from "./textArea";
 import SocialLinks from "./socialLinks"
 import Footer from "./footer"
@@ -12,13 +12,13 @@ const prayerRequest = ()=>{
     
     
       <KeyboardAwareScrollView style={styles.container} contentContainerStyle = {{ flex: 1 }}>  
-        <View style={styles.header}>
+        <View style={styles.header} >
           <Text style={styles.title}>PEDIDOS DE ORACIÓN</Text>          
-          <Image source={require('../images/microphone.png')} style={styles.inImage}/>
+          <Image source={require('../images/microphone.png')} style={styles.inImage} />
         </View>
         
         <View style={styles.textArea}>          
-          <TextArea></TextArea>
+          <TextArea name=""></TextArea>
         </View>
         
         <View style={styles.social}>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     
     flexDirection: "row",    
     justifyContent: "space-evenly",
+    
   },
   title:{
     alignSelf:"center",
@@ -52,8 +53,9 @@ const styles = StyleSheet.create({
     flex:10,
   },      
   inImage:{    
-    height: "100%",
-    resizeMode:"contain",
+    height: "200%",
+    resizeMode:"contain",    
+    zIndex:1,
     flex:3,
    },   
   textArea:{
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
   },
   social:{ 
     minHeight: 120,
-    flex: 2,
+    
     justifyContent: "flex-end",
   }
 });
